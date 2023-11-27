@@ -11,8 +11,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    def npmCommand = isUnix() ? 'npm' : 'npm.cmd'
-                    sh "${npmCommand} install"
+                    bat "npm install"
                 }
             }
         }
@@ -20,8 +19,7 @@ pipeline {
         stage('Run Cypress Tests') {
             steps {
                 script {
-                    def npmCommand = isUnix() ? 'npm' : 'npm.cmd'
-                    sh "${npmCommand} run cy:run"
+                   bat "npm run test"
                 }
             }
         }
